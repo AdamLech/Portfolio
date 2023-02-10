@@ -1,0 +1,335 @@
+$main-bg: #414a56;
+$cont-bg: #1e2228;
+$panel-bg: #242931;
+$accents: #7950f2;
+$accents-light: #9c7ef5;
+$accents-dark: #4e2cb1;
+$accents-bg: #cbbeef;
+$font-default-color: #d8dee9;
+
+$font-regular: 1.2rem;
+$font-big: 1.5rem;
+$font-slim: 300;
+$font-regular-boldness: 400;
+$font-bold: 700;
+
+$radius: 20px;
+
+@mixin align() {
+    width: 100%;
+    padding-top: 5px;
+    text-align: center;
+}
+
+@mixin temp-color($temp) {
+  @if $temp > 25 {
+    color: $accents;
+  }
+}
+
+// body,
+// html {
+//     height: 100%;
+// }
+
+// * {
+//     box-sizing: border-box;
+//     margin: 0;
+//     padding: 0;
+//     font-family: Inter;
+//     color: $font-default-color;
+// }
+
+// body {
+//     background: $main-bg;
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+// }
+
+h1 {
+    font-size: $font-big;
+    font-weight: $font-bold;
+}
+
+.cont {
+    background: $cont-bg;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    height: 700px;
+    min-width: 850px;
+    width: 850px;
+    margin: auto;
+    border-radius: $radius;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+
+    .left {
+      width: 30%;
+      background: $panel-bg;
+      height: 100%;
+      border-radius: $radius 0 0 $radius;
+      display: flex;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+      padding: 20px;
+      row-gap: 10%;
+
+        .login-info {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            column-gap: 20px;
+
+            img {
+                border-radius: 50%;
+            }
+
+            h2 {
+                font-size: $font-big;
+                font-weight: $font-slim;
+                color: $accents-light;
+            }
+        }
+
+        .login-in {
+            // background: #000;
+            flex-grow: 1;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+
+            input {
+                width: 90%;
+                height: 50px;
+                padding: 5px 20px;
+                font-size: $font-big;
+                border-radius: $radius;
+                color: $accents-dark;
+                border: 2px solid $main-bg;
+                margin-bottom: 40px;
+                box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+            }
+
+            input[type="button"] {
+                background: $accents-bg;
+                color: $accents-dark;
+                margin: 5px 0px;
+                transition: 100ms;
+
+                &:hover {
+                    background: darken($accents-bg, 50%);
+                    color: $accents-light;
+                }
+            }
+        }
+
+        .fpass {
+            align-self: center;
+            color: $accents-light;
+
+            a {
+                color: inherit;
+                text-decoration: none;
+                font-weight: $font-bold;
+            }
+        }
+    }
+
+    .right {
+        width: 70%;
+        // background: #0f0;
+        height: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
+        align-content: flex-start;
+        flex-direction: row;
+        flex-wrap: wrap;
+        padding: 20px;
+        gap: 20px;
+
+        .weather {
+            flex-grow: 1;
+            border-radius: $radius;
+            background: $panel-bg;
+
+            h1 {
+                @include align;
+            }
+
+            .weather-body {
+                display: flex;
+                height: 80%;
+                align-items: center;
+                justify-content: space-evenly;
+                flex-direction: column;
+
+                #temp {
+                    font-size: 5em;
+                }
+
+                #weather-day {
+                    font-size: 1.2em;
+                    margin-bottom: 30px;
+                    color: $accents-light;
+                }
+
+                #weather-array {
+                    display: flex;
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                    gap: 5px;
+
+                    div:nth-child(2n + 1) {
+                        p:nth-child(1) {
+                            color: $accents;
+                        }
+                    }
+
+                    div {
+                        display: flex;
+                        justify-content: center;
+                        align-items: center;
+                        flex-direction: column;
+
+                        p:nth-child(1) {
+                            font-size: 1.5em;
+                        }
+
+                        p:nth-child(2) {
+                            color: $accents-light;
+                        }
+                    }
+                }
+
+                #weather-month {
+                    font-size: 1.5em;
+                    color: $accents;
+                }
+            }
+        }
+
+        .contacts {
+            width: 50%;
+            max-height: 50%;
+            border-radius: $radius;
+            flex-grow: 1;
+            overflow-y: scroll;
+
+            h1 {
+                @include align;
+            }
+
+            .contacts-wraper {
+                padding-top: 20px;
+                // height: 100%;'
+                gap: 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: row;
+                flex-wrap: wrap;
+
+                img {
+                    min-width: 50px;
+                    max-width: 25%;
+                    min-height: 50px;
+                    max-height: 25%;
+                    border-radius: 50%;
+                    transition: 0.2s ease-in;
+                    opacity: 0.4;
+                    position: relative;
+
+                    &:hover {
+                        border-radius: $radius;
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        .mail {
+            width: 100%;
+            height: 48%;
+            overflow: hidden;
+            flex-grow: 2;
+            border-radius: $radius;
+            background: $panel-bg;
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            gap: 20px;
+
+            h1 {
+                @include align;
+            }
+
+            #messages {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                flex-direction: column;
+                row-gap: 30px;
+                width: 90%;
+                overflow-y: scroll;
+
+                #mail-body {
+                    display: flex;
+                    align-items: center;
+                    background: $cont-bg;
+                    border-radius: $radius;
+                    height: 60px;
+                    width: 100%;
+                    padding: 5px 10px;
+                    gap: 10px;
+
+                    #contact-name {
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        gap: 5px;
+
+                        img {
+                            border-radius: 50%;
+                            width: 50px;
+                        }
+
+                        p {
+                            // background: #000
+                            width: 50px;
+                            color: $accents-light;
+                        }
+                    }
+
+                    #title {
+                        // background: #000;
+                        color: $accents;
+                        width: 10%;
+                        flex-shrink: 0;
+                        overflow: hidden;
+                        // white-space: nowrap;
+                    }
+
+                    #mess {
+                        overflow: hidden;
+                        white-space: nowrap;
+                        // width: 200px;
+                        // background: #0f0;
+                        // flex-shrink: 0;
+                    }
+
+                    #date {
+                        color: $accents-dark;
+                        width: 10%;
+                    }
+                }
+            }
+        }
+    }
+}

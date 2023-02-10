@@ -34,9 +34,9 @@ const Root = () => {
     navBarRef.current.classList.toggle("toggle-nav-bar");
   }
 
-  const toggleIcon = () => {
+  // const toggleIcon = () => {
     
-  }
+  // }
 
   return(
     <>
@@ -45,8 +45,8 @@ const Root = () => {
           <Link to='./Contact'>Contact</Link>
           <Link to='./Projects'>Project</Link>
       </div>
-      <div>
-        <div className="btn" onClick={toggleNavBar, toggleIcon}><i ref={burgerRef} className="fa-solid fa-burger"></i></div>
+      <div className="btn" onClick={toggleNavBar}><i ref={burgerRef} className="fa-solid fa-burger"></i></div>
+      <div className="main-site-content">
         <Outlet />
       </div>
     </>
