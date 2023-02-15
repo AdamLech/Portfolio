@@ -1,0 +1,73 @@
+
+@mixin flex {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@mixin hover-font-change{
+  color: $lime-green;
+  cursor: pointer;
+  transition: 150ms;
+}
+
+@media (min-width: 376px) {
+  body {
+    .footer {
+      height: 25vh;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: $very-light-gray-blue;
+      flex-basis: auto;
+      .left-footer {
+        @include flex;
+        align-items: start;
+        justify-content: space-around;
+        flex-direction: column;
+        height: 100%;
+        flex-grow: 1;
+        img {
+          width: 100%;
+        }
+        ul {
+          @include flex;
+          justify-content: space-between;
+          width: 80%;
+          height: 50%;
+          li > a:hover{
+            @include hover-font-change;
+            filter: invert(55%) sepia(89%) saturate(412%) hue-rotate(79deg) brightness(100%) contrast(80%);
+          }
+          img {
+            width: 25px;
+          }
+        }
+      }
+      .middle-footer {
+        flex-grow: 2;
+        @include flex;
+        padding-left: 10%;
+        justify-content: space-between;
+        height: 100%;
+        ul {
+          display: flex;
+          justify-content: space-between;
+          height: 70%;
+          flex-flow: column;
+          li:hover{
+            @include hover-font-change;
+          }
+        }
+      }
+      .right-footer {
+        flex-grow: 3;
+        display: flex;
+        height: 100%;
+        justify-content: space-around;
+        align-items: flex-end;
+        flex-direction: column;
+      }
+    }
+  }
+}

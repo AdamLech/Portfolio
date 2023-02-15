@@ -28,11 +28,12 @@ body {
     z-index: 1;
     /* display: none; */
     top: -100px;
-    transition: .5s ease-out;
+    transition: .25s ease-in-out;
 }
 
-.nav-bar:hover {
-
+.toggle-nav-bar {
+    top: 0;
+    transition: .25s ease-in-out;
 }
 
 .main-content {
@@ -72,29 +73,26 @@ body {
     width: 600px;
 }
 
-.toggle-nav-bar {
-    top: 0;
-    transition: .5s ease-in;
-}
-
 .btn {
     top: 0;
     position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 2;
-    background: #000;
+    /* background: #000; */
     padding: 10px;
 }
 
-.fa-burger {
+.fa-solid {
     font-size: 4rem;
     opacity: 1;
     color: #ddd;
-    transition: all .5s ease-in;
 }
 
-.fa-burger:hover {
-    opacity: 0;
-    transform: rotate(360deg);
+.fa-xmark{
+    transition: transform .2s ease-in;
+    transform: rotate(360);
 }
 
 .projects{

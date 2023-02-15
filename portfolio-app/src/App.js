@@ -27,25 +27,20 @@ function App() {
 }
 
 const Root = () => {
-  const navBarRef = useRef();
-  const burgerRef = useRef();
+  let navBarRef = useRef();
 
-  const toggleNavBar = () => {
+  let toggleNavBar = () => {
     navBarRef.current.classList.toggle("toggle-nav-bar");
   }
 
-  // const toggleIcon = () => {
-    
-  // }
-
   return(
     <>
-      <div className="nav-bar" ref={navBarRef}>
+      <div className="nav-bar" ref={navBarRef} onMouseEnter={toggleNavBar} onMouseLeave={toggleNavBar}>
           <Link to='/'>Home</Link>
           <Link to='./Contact'>Contact</Link>
           <Link to='./Projects'>Project</Link>
       </div>
-      <div className="btn" onClick={toggleNavBar}><i ref={burgerRef} className="fa-solid fa-burger"></i></div>
+      <div className="btn" ><i onMouseEnter={toggleNavBar} onMouseLeave={toggleNavBar} className="fa-solid fa-burger"></i></div>
       <div className="main-site-content">
         <Outlet />
       </div>
